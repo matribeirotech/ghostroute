@@ -1,0 +1,5 @@
+# Um proxy por linha (socks5:// ou http://). Linhas com # são ignoradas.
+# socks5://127.0.0.1:9050
+# socks5://usuario:senha@203.0.113.10:1080
+# http://198.51.100.20:8080
+

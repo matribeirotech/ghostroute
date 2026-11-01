@@ -1,0 +1,21 @@
+[server]
+listen_host = "127.0.0.1"   # mantenha em localhost para não expor o proxy na rede
+listen_port = 1080
+# username = "kali"         # opcional: exige usuário/senha dos clientes
+# password = "troque-isto"
+
+[chain]
+mode = "strict"             # strict | dynamic | random
+timeout = 10.0              # segundos por hop
+remote_dns = true           # DNS resolvido pelos hops (evita DNS leak)
+# chain_len = 2             # nº de hops sorteados no modo random
+# proxies_file = "proxies.txt"   # relativo a este arquivo
+
+[[chain.hops]]
+url = "socks5://127.0.0.1:9050"   # Tor local
+
+# [[chain.hops]]
+# url = "socks5://usuario:senha@203.0.113.10:1080"
+
+# [[chain.hops]]
+# url = "http://198.51.100.20:8080"

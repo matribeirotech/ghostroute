@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "Cython>=3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghostroute"
+version = "0.1.0"
+description = "Ferramenta CLI para Linux que encadeia proxies (Tor/SOCKS5/HTTP) para proteger a privacidade do seu IP"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Matheus Augusto" }]
+keywords = ["proxy", "socks5", "tor", "privacy", "cli", "linux"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Cython",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Internet :: Proxy Servers",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff", "mypy", "Cython>=3.0"]
+
+[project.scripts]
+ghostroute = "ghostroute.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
